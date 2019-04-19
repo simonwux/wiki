@@ -16,9 +16,10 @@ class Wiki extends Component {
           "*":"<div></div>"
         },
         categories:[{"*":""}],
-        externallinks:["null"],
+        externallinks:[],
         links:["null"]
-      }
+      },
+      history:[""]
     };
   }
   createMarkup() {
@@ -32,6 +33,8 @@ class Wiki extends Component {
       <div className="row">{this.state.information.title}</div>
       <div className="row"><h3>page id:</h3></div>
       <div className="row">{this.state.information.pageid}</div>
+      <div className="row"><h3>search history:</h3></div>
+      {this.state.history.map(m =><div className="row" >{m}</div>)}
       <div className="row"><h3>categoies:</h3></div>
       {this.state.information.categories.map(m =><div className="row" >{m["*"]}</div>)}
 
@@ -80,6 +83,11 @@ class Wiki extends Component {
           });
         }
       });
+    var newHistory = this.state.history;
+    console.log("history", this.state.history);
+    newHistory.push(this.state.message);
+    console.log("new history", newHistory);
+    this.setState({history: newHistory});
 
 
       // // Messages.insert(
