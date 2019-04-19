@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Meteor } from "meteor/meteor";
-import Chat from "./Chat.jsx";
+import Wiki from "./Wiki.jsx";
 import NavBar from "./NavBar.jsx";
 
 import { withTracker } from "meteor/react-meteor-data";
@@ -11,9 +11,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 const HomeComponent = () => {
   return (
     <div>
-      <h1>Meteor chat</h1>
+      <h1>Meteor wiki</h1>
 
-      {Meteor.user() ? <Chat /> : <div>Please log in</div>}
+      {Meteor.user() ? <Wiki /> : <div>Please log in</div>}
 
     </div>
   );
@@ -45,7 +45,7 @@ class App extends Component {
             <Route component={NotFoundPage} />
           </Switch>
           <br />
-          <div>Made by John with effort</div>
+          <div>Made by Shuomin "Simon" Wu</div>
 
 
         </div>

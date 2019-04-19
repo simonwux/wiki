@@ -1,1 +1,2 @@
-# meteor-simple-chat
+# meteor-wiki
+
