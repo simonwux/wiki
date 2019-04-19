@@ -59,7 +59,7 @@ class Wiki extends Component {
   }
 
   onChange(evt) {
-    console.log("change", evt.target.value);
+    //console.log("change", evt.target.value);
     this.setState({
       message: evt.target.value
     });
@@ -84,9 +84,9 @@ class Wiki extends Component {
         }
       });
     var newHistory = this.state.history;
-    console.log("history", this.state.history);
+    //console.log("history", this.state.history);
     newHistory.push(this.state.message);
-    console.log("new history", newHistory);
+    //console.log("new history", newHistory);
     this.setState({history: newHistory});
 
 
