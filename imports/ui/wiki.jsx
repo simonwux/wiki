@@ -16,7 +16,8 @@ class Chat extends Component {
         text:{
           "*":"<div></div>"
         },
-        categories:[{"*":""}]
+        categories:[{"*":""}],
+        externallinks:["null"]
       }
     };
   }
@@ -27,8 +28,17 @@ class Chat extends Component {
     //console.log("information", this.state.information);
     //console.log("informationlinks:", this.state.information.text["*"]);
     return (<div>
+      <div className="row"><h3>title:</h3></div>
       <div className="row">{this.state.information.title}</div>
+      <div className="row"><h3>page id:</h3></div>
       <div className="row">{this.state.information.pageid}</div>
+      <div className="row"><h3>categoies:</h3></div>
+      {this.state.information.categories.map(m =><div className="row" >{m["*"]}</div>)}
+      <div className="row"><h3>external links:</h3></div>
+      
+      {this.state.information.externallinks.map(m =><div className="row"><a href={m}>{m}</a></div>)}
+      
+      <div className="row"><h3>things on wiki:</h3></div>
       <div dangerouslySetInnerHTML={this.createMarkup()} />
     </div>);
       //{this.state.information.categories.map(m =><div className="row" >{m["*"]}</div>)}
