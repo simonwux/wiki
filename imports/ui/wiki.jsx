@@ -17,7 +17,7 @@ class Wiki extends Component {
         },
         categories:[{"*":""}],
         externallinks:[],
-        links:["null"]
+        links:[""]
       },
       history:[""]
     };
@@ -34,13 +34,13 @@ class Wiki extends Component {
       <div className="row"><h3>page id:</h3></div>
       <div className="row">{this.state.information.pageid}</div>
       <div className="row"><h3>search history:</h3></div>
-      {this.state.history.map(m =><div className="row" >{m}</div>)}
+      {this.state.history.map(m =><div className="row" ><button onClick = {() => {this.check(m)}}>{m}</button></div>)}
       <div className="row"><h3>categoies:</h3></div>
       {this.state.information.categories.map(m =><div className="row" >{m["*"]}</div>)}
 
       <div className="row"><h3>links:</h3></div>
       <div className="row">
-        {this.state.information.links.map(m =><div className="col-4">{m["*"]}    </div>)}
+        {this.state.information.links.map(m =><div className="col-4"><button onClick = {() => {this.check(m["*"]).bind(this)}}>{m["*"]}</button></div>)}
       </div>
 
       <div className="row"><h3>external links:</h3></div>
@@ -56,6 +56,14 @@ class Wiki extends Component {
     //<div className="card">{this.state.information.links}</div>
     // return this.state.information.map(m =>
     //   <div className="card" key={m._id}>{m.title} : {m.links}</div>);
+  }
+
+  check(mm) {
+    console.log("change message:", mm);
+    this.setState({
+      message: mm
+    });
+    this.onKey();
   }
 
   onChange(evt) {
