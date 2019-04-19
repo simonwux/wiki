@@ -22,13 +22,12 @@ const HomeComponent = () => {
 const AboutComponent = () =>
   <div>
     <h2>About</h2>
-    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est saepe, ea minus quae ab nam impedit eaque. Adipisci expedita sit repudiandae, enim sapiente ipsam voluptas obcaecati veritatis, sunt eius nemo.</div>
+    <div>This is a simple meteor application calling wiki. You can search as wikipedia.</div>
   </div>;
 
 const NotFoundPage = () =>
   <div>
     <h2>Page not found</h2>
-    <div>We should call Suhas 🤷‍♀️</div>
   </div>;
 
 

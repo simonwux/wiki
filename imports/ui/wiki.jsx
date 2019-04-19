@@ -3,9 +3,8 @@ import PropTypes from "prop-types";
 import { Meteor } from "meteor/meteor";
 
 import { withTracker } from "meteor/react-meteor-data";
-import { Messages } from "../api/messages.js";
 
-class Chat extends Component {
+class Wiki extends Component {
   constructor(props) {
     super(props);
 
@@ -17,7 +16,8 @@ class Chat extends Component {
           "*":"<div></div>"
         },
         categories:[{"*":""}],
-        externallinks:["null"]
+        externallinks:["null"],
+        links:["null"]
       }
     };
   }
@@ -34,11 +34,17 @@ class Chat extends Component {
       <div className="row">{this.state.information.pageid}</div>
       <div className="row"><h3>categoies:</h3></div>
       {this.state.information.categories.map(m =><div className="row" >{m["*"]}</div>)}
+
+      <div className="row"><h3>links:</h3></div>
+      <div className="row">
+        {this.state.information.links.map(m =><div className="col-4">{m["*"]}    </div>)}
+      </div>
+
       <div className="row"><h3>external links:</h3></div>
       
       {this.state.information.externallinks.map(m =><div className="row"><a href={m}>{m}</a></div>)}
       
-      <div className="row"><h3>things on wiki:</h3></div>
+      <div className="row"><h1>things on wiki:</h1></div>
       <div dangerouslySetInnerHTML={this.createMarkup()} />
     </div>);
       //{this.state.information.categories.map(m =><div className="row" >{m["*"]}</div>)}
@@ -98,7 +104,6 @@ class Chat extends Component {
   }
 
   render() {
-    console.log("Messages", this.props.messages);
     return (
       <div>
         <h2>put something and click search!</h2>
@@ -119,15 +124,9 @@ class Chat extends Component {
   }
 }
 
-Chat.propTypes = {
-  messages: PropTypes.arrayOf(PropTypes.object).isRequired
-};
 
 export default withTracker(() => {
-  const handle = Meteor.subscribe("messages");
   return {
-    messages: Messages.find({}).fetch(),
-    user: Meteor.user(),
-    ready : handle.ready()
+    user: Meteor.user()
   };
-})(Chat);
+})(Wiki);

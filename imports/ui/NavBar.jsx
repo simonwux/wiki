@@ -10,7 +10,7 @@ export default class NavBar extends Component {
       <div>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <a className="navbar-brand" href="#">
-            Chat
+            Meteor Wiki
           </a>
           <button
             className="navbar-toggler"
